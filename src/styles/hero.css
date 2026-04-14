@@ -2,7 +2,13 @@
    Hero Section — Haute Couture Typography
    =================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@font-face {
+  font-family: 'Pinyon Script';
+  src: url('../assets/fonts/Pinyon_Script/PinyonScript-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* --- Section Container --- */
 .hero-section {
