@@ -12,7 +12,7 @@ import {
   SiFigma 
 } from "react-icons/si";
 import { IoLogoCss3 } from "react-icons/io5";
-import { LuLayers, LuKanban } from "react-icons/lu"; 
+import { LuLayers, LuKanban, LuExternalLink } from "react-icons/lu"; 
 import fotopessoal from "./assets/fotopessoal.png" 
 import webapplogin from "./assets/projetosimage/sistemaloginweb.png"
 import cencosudtraining from "./assets/projetosimage/cencosudtraining.png"
@@ -301,13 +301,18 @@ const Portfolio = () => {
         </ScrollReveal>
         <div className="contact-links">
           <ScrollReveal direction="wipe" delay={1}>
-            <a href="https://github.com/lucasnsnt/" className="contact-item" target='_blank' rel='noopener noreferrer'>GITHUB</a>
+            <a href="https://github.com/lucasnsnt/" className="contact-item" target='_blank' rel='noopener noreferrer'>GITHUB <LuExternalLink className="external-link-icon" aria-hidden="true" /></a>
           </ScrollReveal>
           <ScrollReveal direction="wipe" delay={3}>
-            <a href="https://www.linkedin.com/in/lucasnsnt/" className="contact-item" target='_blank' rel='noopener noreferrer'>LINKEDIN</a>
+            <a href="https://www.linkedin.com/in/lucasnsnt/" className="contact-item" target='_blank' rel='noopener noreferrer'>LINKEDIN <LuExternalLink className="external-link-icon" aria-hidden="true" /></a>
           </ScrollReveal>
           <ScrollReveal direction="wipe" delay={5}>
-            <a href="mailto:lucasnsntcontato@outlook.com" className="contact-item" target='_blank' rel='noopener noreferrer'>EMAIL</a>
+            <a href="mailto:lucasnsntcontato@outlook.com" className="contact-item" target='_blank' rel='noopener noreferrer'>EMAIL <LuExternalLink className="external-link-icon" aria-hidden="true" /></a>
+          </ScrollReveal>
+          <ScrollReveal direction="wipe" delay={5}>
+            <a href="https://links.lucasnsnt.ink/" className="contact-item" target='_blank' rel='noopener noreferrer' aria-label="Abrir árvore de links em nova guia">
+              MEUS LINKS <LuExternalLink className="external-link-icon" aria-hidden="true" />
+            </a>
           </ScrollReveal>
         </div>
       </section>

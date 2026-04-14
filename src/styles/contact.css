@@ -15,12 +15,21 @@
 }
 
 .contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
   font-size: 2.5rem;
   font-weight: 900;
   text-decoration: none;
   color: var(--text-color);
   transition: var(--transition);
   position: relative;
+}
+
+.external-link-icon {
+  width: 0.8em;
+  height: 0.8em;
+  flex-shrink: 0;
 }
 
 .contact-item:hover {
