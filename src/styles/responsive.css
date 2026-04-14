@@ -33,8 +33,7 @@
   }
 
   .contact-dropdown {
-    left: 50%;
-    transform: translateX(-50%);
+    display: none;
   }
 
   .contact-dropdown.active {

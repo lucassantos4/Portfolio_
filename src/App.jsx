@@ -18,7 +18,9 @@ import webapplogin from "./assets/projetosimage/sistemaloginweb.png"
 import cencosudtraining from "./assets/projetosimage/cencosudtraining.png"
 import { ScrollReveal } from "./components/ScrollReveal"
 import HeroSection from "./components/HeroSection"
+import ExternalLink from "./components/ExternalLink"
 import { useLanguage } from "./i18n/useLanguage"
+import { isInAppBrowser } from "./lib/browser.js"
 
 const Portfolio = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -28,8 +30,12 @@ const Portfolio = () => {
     e.preventDefault();
     const cvUrl = `${import.meta.env.BASE_URL}Curriculo.pdf`;
 
-    const newTab = window.open(cvUrl, '_blank');
-    if (newTab) newTab.opener = null;
+    // Em WebViews, window.open() retorna null ou abre na aba atual — skip.
+    // Em browsers padrão, abre o PDF em nova aba normalmente.
+    if (!isInAppBrowser()) {
+      const newTab = window.open(cvUrl, '_blank');
+      if (newTab) newTab.opener = null;
+    }
 
     const link = document.createElement('a');
     link.href = cvUrl;
@@ -60,8 +66,9 @@ const Portfolio = () => {
           >
             <a href="#contact">{t.nav.contact}</a>
             <ul className={`contact-dropdown ${showDropdown ? 'active' : ''}`} role="menu" aria-label={lang === 'pt' ? 'Links de contato' : 'Contact links'}>
-              <li role="none"><a href="https://www.linkedin.com/in/lucasnsnt/" target="_blank" rel="noopener noreferrer" role="menuitem" tabIndex={0}>LinkedIn</a></li>
-              <li role="none"><a href="https://github.com/lucasnsnt/" target="_blank" rel="noopener noreferrer" role="menuitem" tabIndex={0}>GitHub</a></li>
+              <li role="none"><ExternalLink href="https://www.linkedin.com/in/lucasnsnt/" role="menuitem" tabIndex={0}>LinkedIn</ExternalLink></li>
+              <li role="none"><ExternalLink href="https://github.com/lucasnsnt/" role="menuitem" tabIndex={0}>GitHub</ExternalLink></li>
+              <li role="none"><ExternalLink href="https://links.lucasnsnt.ink" role="menuitem" tabIndex={0}>Meus Links</ExternalLink></li>
             </ul>
           </li>
           <li>
@@ -301,18 +308,18 @@ const Portfolio = () => {
         </ScrollReveal>
         <div className="contact-links">
           <ScrollReveal direction="wipe" delay={1}>
-            <a href="https://github.com/lucasnsnt/" className="contact-item" target='_blank' rel='noopener noreferrer'>GITHUB <LuExternalLink className="external-link-icon" aria-hidden="true" /></a>
+            <ExternalLink href="https://github.com/lucasnsnt/" className="contact-item">GITHUB <LuExternalLink className="external-link-icon" aria-hidden="true" /></ExternalLink>
           </ScrollReveal>
           <ScrollReveal direction="wipe" delay={3}>
-            <a href="https://www.linkedin.com/in/lucasnsnt/" className="contact-item" target='_blank' rel='noopener noreferrer'>LINKEDIN <LuExternalLink className="external-link-icon" aria-hidden="true" /></a>
+            <ExternalLink href="https://www.linkedin.com/in/lucasnsnt/" className="contact-item">LINKEDIN <LuExternalLink className="external-link-icon" aria-hidden="true" /></ExternalLink>
           </ScrollReveal>
           <ScrollReveal direction="wipe" delay={5}>
             <a href="mailto:lucasnsntcontato@outlook.com" className="contact-item" target='_blank' rel='noopener noreferrer'>EMAIL <LuExternalLink className="external-link-icon" aria-hidden="true" /></a>
           </ScrollReveal>
           <ScrollReveal direction="wipe" delay={5}>
-            <a href="https://links.lucasnsnt.ink/" className="contact-item" target='_blank' rel='noopener noreferrer' aria-label="Abrir árvore de links em nova guia">
+            <ExternalLink href="https://links.lucasnsnt.ink/" className="contact-item" aria-label="Abrir árvore de links em nova guia">
               MEUS LINKS <LuExternalLink className="external-link-icon" aria-hidden="true" />
-            </a>
+            </ExternalLink>
           </ScrollReveal>
         </div>
       </section>
