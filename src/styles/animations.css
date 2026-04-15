@@ -5,19 +5,20 @@
 /* --- Base State (hidden before reveal) --- */
 .reveal {
   opacity: 0;
-  will-change: transform, opacity, filter;
   transition:
     opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1),
     clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal:not(.revealed) {
+  will-change: transform, opacity;
 }
 
 /* --- Revealed State --- */
 .reveal.revealed {
   opacity: 1 !important;
   transform: none !important;
-  filter: blur(0) !important;
   clip-path: inset(0 0 0 0) !important;
 }
 
@@ -25,17 +26,15 @@
    Direction Variants
    =================================== */
 
-/* Slide up with slight blur */
+/* Slide up */
 .reveal-up {
   transform: translateY(60px);
-  filter: blur(4px);
   clip-path: inset(0);
 }
 
 /* Drop from above */
 .reveal-down {
   transform: translateY(-50px);
-  filter: blur(3px);
   clip-path: inset(0);
 }
 
@@ -54,7 +53,6 @@
 /* Scale up from smaller */
 .reveal-scale {
   transform: scale(0.7);
-  filter: blur(6px);
   clip-path: inset(0);
 }
 
@@ -80,7 +78,6 @@
 /* Split reveal — elements spread from center */
 .reveal-spread {
   transform: scaleX(0.3);
-  filter: blur(8px);
   clip-path: inset(0);
 }
 
@@ -107,7 +104,6 @@
   .reveal {
     opacity: 1 !important;
     transform: none !important;
-    filter: none !important;
     clip-path: none !important;
     transition: none !important;
   }
@@ -117,7 +113,6 @@
   .reveal.revealed {
     opacity: 1 !important;
     transform: none !important;
-    filter: none !important;
     clip-path: none !important;
   }
 }

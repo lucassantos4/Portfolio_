@@ -13,9 +13,9 @@ import {
 } from "react-icons/si";
 import { IoLogoCss3 } from "react-icons/io5";
 import { LuLayers, LuKanban, LuExternalLink } from "react-icons/lu"; 
-import fotopessoal from "./assets/fotopessoal.png" 
-import webapplogin from "./assets/projetosimage/sistemaloginweb.png"
-import cencosudtraining from "./assets/projetosimage/cencosudtraining.png"
+import fotopessoal from "./assets/fotopessoal.webp" 
+import webapplogin from "./assets/projetosimage/sistemaloginweb.webp"
+import cencosudtraining from "./assets/projetosimage/cencosudtraining.webp"
 import { ScrollReveal } from "./components/ScrollReveal"
 import HeroSection from "./components/HeroSection"
 import ExternalLink from "./components/ExternalLink"
@@ -113,7 +113,7 @@ const Portfolio = () => {
           <ScrollReveal direction="flip">
           <div className="about-image-wrapper">
             <div className="photo-frame">
-              <img src={fotopessoal} alt={t.about.imgAlt} />
+              <img src={fotopessoal} alt={t.about.imgAlt} width={500} height={500} />
             </div>
           </div>
           </ScrollReveal>
@@ -138,7 +138,7 @@ const Portfolio = () => {
           <div className="project-card">
             <div className="project-image-container mobile">
              
-              <img src={cencosudtraining} alt={t.projects.cencosud.alt} className="project-screenshot" />
+              <img src={cencosudtraining} alt={t.projects.cencosud.alt} className="project-screenshot" width={800} height={550} loading="lazy" />
             </div>
             <div className="project-info">
               <h3 className="project-name">{t.projects.cencosud.name}</h3>
@@ -154,7 +154,7 @@ const Portfolio = () => {
           <div className="project-card">
             <div className="project-image-container mobile">
       
-              <img src={webapplogin} alt={t.projects.login.alt} className="project-screenshot" />
+              <img src={webapplogin} alt={t.projects.login.alt} className="project-screenshot" width={800} height={550} loading="lazy" />
             </div>
             <div className="project-info">
               <h3 className="project-name">{t.projects.login.name}</h3>

@@ -105,8 +105,8 @@
 
   .projects-grid {
     grid-template-columns: 1fr; 
-    gap: 1rem;
-    max-width: 500px;
+    gap: 0.5rem;
+    max-width: 500px !important;
     padding: 0 0.5rem;
   }
 

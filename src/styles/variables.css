@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'BBH Bogle';
-  src: local('BBH Bogle'), url('../assets/fonts/BBHBogle-Regular.woff2') format('woff2');
+  src: local('BBH Bogle'), url('/fonts/BBHBogle-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,26 +12,34 @@
 
 @font-face {
   font-family: 'Open Sans';
-  src: local('Open Sans'), url('../assets/fonts/OpenSans-Variable.woff2') format('woff2');
+  src: local('Open Sans'), url('/fonts/OpenSans-Variable.woff2') format('woff2');
   font-weight: 300 800;
   font-style: normal;
   font-display: swap;
+  size-adjust: 100%;
+  ascent-override: 105%;
+  descent-override: 35%;
+  line-gap-override: 0%;
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: local('Open Sans Italic'), url('../assets/fonts/OpenSans-Italic-Variable.woff2') format('woff2');
+  src: local('Open Sans Italic'), url('/fonts/OpenSans-Italic-Variable.woff2') format('woff2');
   font-weight: 300 800;
   font-style: italic;
   font-display: swap;
+  size-adjust: 100%;
+  ascent-override: 105%;
+  descent-override: 35%;
+  line-gap-override: 0%;
 }
 
 @font-face {
   font-family: 'Background Echo';
-  src: local('Pinyon Script'), url('../assets/fonts/PinyonScript-Regular.woff2') format('woff2');
+  src: local('Pinyon Script'), url('/fonts/PinyonScript-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 :root {

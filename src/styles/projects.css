@@ -5,6 +5,7 @@
 .section {
   padding: 4rem 0;
   border-bottom: var(--border-width) solid var(--text-color);
+  
 }
 
 .section-title {
@@ -19,6 +20,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  
 }
 
 .projects-section {
@@ -43,7 +45,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
