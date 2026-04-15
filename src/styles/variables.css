@@ -40,10 +40,19 @@
 
 @font-face {
   font-family: 'Background Echo';
+  src: local('Pinyon Script'), url('/fonts/PinyonScript-Hero.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+20,U+62,U+64-65,U+6C,U+6F,U+70,U+72,U+76-77; /* "web developer" chars */
+}
+
+@font-face {
+  font-family: 'Background Echo';
   src: local('Pinyon Script'), url('/fonts/PinyonScript-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 :root {
