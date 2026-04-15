@@ -39,13 +39,13 @@
   src: local('Pinyon Script'), url('/fonts/PinyonScript-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 
 :root {
   --topicos: "BBH Bogle", Arial, Helvetica, sans-serif;
   --texto: "Open Sans", Arial, Helvetica, sans-serif;
-  --echo: "Background Echo", "Pinyon Script", "Brush Script MT", cursive;
+  --echo: "Background Echo", "Pinyon Script", "Segoe Script", "Apple Chancery", "Lucida Handwriting", cursive;
   
   --bg-color: #f2f0ed; 
   --text-color: #111111;
