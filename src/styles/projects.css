@@ -50,6 +50,280 @@
   padding: 0 2rem;
 }
 
+/* ===================================
+   Project Carousel
+   =================================== */
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 4.5rem;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px;
+  transition: height 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Base slide layer */
+.carousel-slide {
+  will-change: transform, opacity, clip-path;
+}
+
+.carousel-current {
+  transform-origin: center center;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Incoming slide — absolutely positioned on top, revealed via clip-path */
+.carousel-incoming {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ---- OUTGOING (current card leaving) ---- */
+
+/* Next clicked → current exits to the LEFT */
+.carousel-out-next {
+  opacity: 0;
+  transform: translateX(-8%) scale(0.95);
+  filter: blur(4px);
+  transform-origin: left center;
+}
+
+/* Prev clicked → current exits to the RIGHT */
+.carousel-out-prev {
+  opacity: 0;
+  transform: translateX(8%) scale(0.95);
+  filter: blur(4px);
+  transform-origin: right center;
+}
+
+/* Staggered exit — image and info move at different speeds */
+.carousel-out-next .project-image-container,
+.carousel-out-prev .project-image-container {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.carousel-out-next .project-image-container {
+  transform: translateX(-4%);
+}
+.carousel-out-prev .project-image-container {
+  transform: translateX(4%);
+}
+
+.carousel-out-next .project-info,
+.carousel-out-prev .project-info {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.03s,
+              opacity 0.35s ease;
+  opacity: 0;
+}
+.carousel-out-next .project-info {
+  transform: translateX(-8%);
+}
+.carousel-out-prev .project-info {
+  transform: translateX(8%);
+}
+
+/* ---- INCOMING (new card entering via diagonal clip-path) ---- */
+
+/* Next clicked → new card sweeps in from the RIGHT */
+.carousel-in-next {
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  animation: sweepFromRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Prev clicked → new card sweeps in from the LEFT */
+.carousel-in-prev {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  animation: sweepFromLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sweepFromRight {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+    transform: translateX(3%);
+  }
+  55% {
+    clip-path: polygon(3% 0%, 100% 0%, 100% 100%, 10% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: translateX(0);
+  }
+}
+
+@keyframes sweepFromLeft {
+  0% {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    transform: translateX(-3%);
+  }
+  55% {
+    clip-path: polygon(0% 0%, 97% 0%, 90% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: translateX(0);
+  }
+}
+
+/* ---- Staggered INCOMING children (parallax layers) ---- */
+
+/* Image: counter-translate for parallax depth */
+.carousel-in-next .project-image-container,
+.carousel-in-prev .project-image-container {
+  animation: imgParallaxIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes imgParallaxIn {
+  0% {
+    transform: scale(1.06);
+    filter: brightness(0.85);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+/* Title: slides up with spring-like overshoot */
+.carousel-in-next .project-name,
+.carousel-in-prev .project-name {
+  animation: textRevealIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+/* Description: slides up later */
+.carousel-in-next .project-desc,
+.carousel-in-prev .project-desc {
+  animation: textRevealIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+@keyframes textRevealIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Arrow feedback on click ---- */
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.88);
+  transition-duration: 0.1s;
+}
+
+.carousel-arrow:disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Dot incoming pulse */
+.carousel-dot.incoming {
+  animation: dotPulse 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes dotPulse {
+  0% { transform: scale(0.6); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1.25); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-current,
+  .carousel-incoming,
+  .carousel-incoming .project-image-container,
+  .carousel-incoming .project-name,
+  .carousel-incoming .project-desc {
+    transition: none !important;
+    animation: none !important;
+    clip-path: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: var(--card-bg);
+  border: var(--border-width) solid var(--text-color);
+  color: var(--text-color);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-arrow:hover {
+  background: var(--text-color);
+  color: var(--card-bg);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow-left {
+  left: -0.5rem;
+}
+
+.carousel-arrow-right {
+  right: -0.5rem;
+}
+
+/* Dots + Counter */
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: var(--border-width) solid var(--text-color);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.25);
+}
+
+.carousel-dot:hover:not(.active) {
+  background: var(--muted);
+}
+
+.carousel-counter {
+  font-family: var(--texto);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-left: 0.6rem;
+}
+
 .project-card {
   background-color: var(--card-bg);
   border: var(--border-width) solid var(--text-color);
@@ -113,8 +387,12 @@
   font-weight: 700;
 }
 
-.project-card:hover {
-  transform: translate(-6px, -6px);
-  box-shadow: 8px 8px 0px var(--accent);
-  border-color: var(--accent);
+/*
+  .project-card:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: 8px 8px 0px var(--accent);
+    border-color: var(--accent);
+
+    ativar quando implementar clique para ver projeto
 }
+*/

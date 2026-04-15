@@ -14,6 +14,7 @@
   <!-- Preload critical fonts -->
   <link rel="preload" href="/fonts/BBHBogle-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/OpenSans-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/PinyonScript-Regular.woff2" as="font" type="font/woff2" crossorigin />
 
   <title>Portfólio | Lucas Santos - Dev </title>
   <meta name="description"
@@ -115,7 +116,25 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <!-- Pre-rendered hero for instant LCP — replaced by React on mount -->
+    <div class="container">
+      <main>
+        <header class="hero-section" id="hero">
+          <div class="hero-echo" aria-hidden="true">
+            <span class="hero-echo-text">web developer</span>
+          </div>
+          <div class="hero-content">
+            <h1 class="hero-name">
+              <span class="hero-name-line hero-name-top">LUCAS</span>
+              <span class="hero-name-line hero-name-bottom">SANTOS</span>
+            </h1>
+            <p class="hero-tagline">Desenvolvedor web.</p>
+          </div>
+        </header>
+      </main>
+    </div>
+  </div>
   <noscript>
     <h1>Lucas Santos — Desenvolvedor Web Full-Stack</h1>
     <h2>Sobre Mim</h2>

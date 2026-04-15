@@ -2,7 +2,7 @@
    Responsive Breakpoints
    =================================== */
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .container {
     border-left: none;
     border-right: none;
@@ -91,16 +91,15 @@
 
   /* Projects */
   .projects-header {
-    margin-bottom: 3rem;
-  }
-
-  .project-image-container.mobile {
-    aspect-ratio: 12 / 8;
-    padding: 1rem;
+    margin-bottom: 2rem;
   }
 
   .section-title {
     font-size: 2.1rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
   }
 
   .projects-grid {
@@ -108,6 +107,37 @@
     gap: 0.5rem;
     max-width: 500px !important;
     padding: 0 0.5rem;
+  }
+
+  /* Carousel responsive */
+  .carousel-wrapper {
+    max-width: 85%;
+    padding: 0 3rem;
+    margin: 0 auto;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .project-image-container.mobile {
+    aspect-ratio: 16 / 9;
+    padding: 0.75rem;
+  }
+
+  .project-info {
+    padding: 1.2rem 1rem;
+  }
+
+  .project-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
   }
 
   /* Skills */
@@ -221,5 +251,48 @@
     height: 35px;
     bottom: -6px;
     right: -6px;
+  }
+
+  /* Carousel small screens */
+  .carousel-wrapper {
+    max-width: 90%;
+    padding: 0 2.2rem;
+  }
+
+  .carousel-arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  .carousel-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .project-image-container.mobile {
+    aspect-ratio: 3 / 2;
+    padding: 0.5rem;
+  }
+
+  .project-info {
+    padding: 1rem 0.8rem;
+  }
+
+  .project-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .project-desc {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .carousel-dots {
+    margin-top: 1.2rem;
+  }
+
+  .carousel-counter {
+    font-size: 0.75rem;
   }
 }

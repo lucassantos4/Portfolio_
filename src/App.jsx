@@ -1,24 +1,17 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import "./styles/index.css"
-import { FaJava , FaNodeJs} from "react-icons/fa";
-import { 
-  SiSpringboot, 
-  SiJavascript, 
-  SiHtml5, 
-  SiReact,
-  SiMysql,  
-  SiGithub,
-  SiPython,
-  SiFigma 
-} from "react-icons/si";
-import { IoLogoCss3 } from "react-icons/io5";
-import { LuLayers, LuKanban, LuExternalLink } from "react-icons/lu"; 
+import {
+  FaJava, FaNodeJs, SiSpringboot, SiJavascript, SiHtml5,
+  SiReact, SiMysql, SiGithub, SiPython, SiFigma,
+  IoLogoCss3, LuLayers, LuKanban, LuExternalLink
+} from "./components/Icons"; 
 import fotopessoal from "./assets/fotopessoal.webp" 
 import webapplogin from "./assets/projetosimage/sistemaloginweb.webp"
 import cencosudtraining from "./assets/projetosimage/cencosudtraining.webp"
 import { ScrollReveal } from "./components/ScrollReveal"
 import HeroSection from "./components/HeroSection"
 import ExternalLink from "./components/ExternalLink"
+const ProjectCarousel = lazy(() => import("./components/ProjectCarousel"));
 import { useLanguage } from "./i18n/useLanguage"
 import { isInAppBrowser } from "./lib/browser.js"
 
@@ -113,7 +106,7 @@ const Portfolio = () => {
           <ScrollReveal direction="flip">
           <div className="about-image-wrapper">
             <div className="photo-frame">
-              <img src={fotopessoal} alt={t.about.imgAlt} width={500} height={500} />
+              <img src={fotopessoal} alt={t.about.imgAlt} width={500} height={500} loading="lazy" />
             </div>
           </div>
           </ScrollReveal>
@@ -130,42 +123,28 @@ const Portfolio = () => {
         </div>
         </ScrollReveal>
 
-        <div className="projects-grid">
-          
-
-          {/* PROJETO 01 */}
-          <ScrollReveal direction="left" delay={1}>
-          <div className="project-card">
-            <div className="project-image-container mobile">
-             
-              <img src={cencosudtraining} alt={t.projects.cencosud.alt} className="project-screenshot" width={800} height={550} loading="lazy" />
-            </div>
-            <div className="project-info">
-              <h3 className="project-name">{t.projects.cencosud.name}</h3>
-              <p className="project-desc">
-                {t.projects.cencosud.desc}
-              </p>
-            </div>
-          </div>
-          </ScrollReveal>
-
-          {/* PROJETO 02 */}
-          <ScrollReveal direction="right" delay={3}>
-          <div className="project-card">
-            <div className="project-image-container mobile">
-      
-              <img src={webapplogin} alt={t.projects.login.alt} className="project-screenshot" width={800} height={550} loading="lazy" />
-            </div>
-            <div className="project-info">
-              <h3 className="project-name">{t.projects.login.name}</h3>
-              <p className="project-desc">
-                {t.projects.login.desc}
-              </p>
-            </div>
-          </div>
-          </ScrollReveal>
-
-        </div>
+        <ScrollReveal direction="up" delay={1}>
+          <Suspense fallback={<div style={{minHeight: '300px'}} />}>
+            <ProjectCarousel
+              projects={[
+                {
+                  image: cencosudtraining,
+                  alt: t.projects.cencosud.alt,
+                  name: t.projects.cencosud.name,
+                  desc: t.projects.cencosud.desc,
+                  imageClass: 'mobile',
+                },
+                {
+                  image: webapplogin,
+                  alt: t.projects.login.alt,
+                  name: t.projects.login.name,
+                  desc: t.projects.login.desc,
+                  imageClass: 'mobile',
+                },
+              ]}
+            />
+          </Suspense>
+        </ScrollReveal>
       </section>
 
       <section id='skills' className="skills-section">
