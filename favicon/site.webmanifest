@@ -1,6 +1,8 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Lucas Santos - Portfólio",
+  "short_name": "Lucas Santos",
+  "description": "Portfólio profissional de Lucas Santos, desenvolvedor web full-stack.",
+  "lang": "pt-BR",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

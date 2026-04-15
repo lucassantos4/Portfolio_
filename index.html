@@ -11,6 +11,10 @@
   <link rel="manifest" href="/favicon/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="/fonts/BBHBogle-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/OpenSans-Variable.woff2" as="font" type="font/woff2" crossorigin />
+
   <title>Portfólio | Lucas Santos - Dev </title>
   <meta name="description"
     content="Desenvolvedor web com experiência em Java, Spring Boot, React, Node.js, JavaScript e MySQL. Criação de sistemas web, APIs e interfaces modernas." />
@@ -90,19 +94,26 @@
   }
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7HYER941PK"></script>
+  <!-- Google tag (gtag.js) — deferred to reduce TBT -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-7HYER941PK');
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7HYER941PK';
+        s.async = true;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-7HYER941PK');
+      }, 3500);
+    });
   </script>
 
 
-  <script type="module" crossorigin src="/assets/index-Dqba01m3.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BR1Djf9_.css">
+  <script type="module" crossorigin src="/assets/index-79ts9f_W.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-C0jV7iWK.css">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 </head>
 
@@ -118,8 +129,8 @@
     <p>Java, Spring Boot, React, Node.js, JavaScript, MySQL, HTML, CSS, Git, GitHub, Figma.</p>
     <h2>Contato</h2>
     <ul>
-      <li><a href="https://github.com/lucassantos4">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/lucassantos4/">LinkedIn</a></li>
+      <li><a href="https://github.com/lucasnsnt">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/lucasnsnt/">LinkedIn</a></li>
       <li><a href="mailto:lucasnsntcontato@outlook.com">Email</a></li>
     </ul>
   </noscript>
