@@ -44,6 +44,25 @@
   border-color: var(--accent);
 }
 
+@media (hover: none) {
+  .contact-link-altfont:hover::before {
+    transform: scaleY(0);
+  }
+
+  .contact-link-altfont:hover {
+    color: var(--text-color);
+    padding-left: 1.2em;
+    border-color: var(--text-color);
+  }
+
+  .contact-link-altfont:active {
+    background-color: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    transform: scale(0.97);
+  }
+}
+
 
 /* ===================================
    Contact & Footer

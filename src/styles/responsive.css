@@ -191,6 +191,12 @@
     word-break: break-all; 
   }
 
+  .contact-link-altfont {
+    font-size: 0.95rem;
+    padding: 0.5em 1em;
+    align-self: flex-start;
+  }
+
   .btn-talk {
     width: 100%; 
     text-align: center;
@@ -294,5 +300,12 @@
 
   .carousel-counter {
     font-size: 0.75rem;
+  }
+
+  .contact-link-altfont {
+    font-size: 0.85rem;
+    padding: 0.45em 0.9em;
+    letter-spacing: 0.05em;
+    align-self: flex-start;
   }
 }
