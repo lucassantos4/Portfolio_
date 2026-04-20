@@ -61,7 +61,7 @@ const Portfolio = () => {
             <ul className={`contact-dropdown ${showDropdown ? 'active' : ''}`} role="menu" aria-label={lang === 'pt' ? 'Links de contato' : 'Contact links'}>
               <li role="none"><ExternalLink href="https://www.linkedin.com/in/lucasnsnt/" role="menuitem" tabIndex={0}>LinkedIn</ExternalLink></li>
               <li role="none"><ExternalLink href="https://github.com/lucasnsnt/" role="menuitem" tabIndex={0}>GitHub</ExternalLink></li>
-              <li role="none"><ExternalLink href="https://links.lucasnsnt.ink" role="menuitem" tabIndex={0}>Meus Links</ExternalLink></li>
+              <li role="none"><a href="https://links.lucasnsnt.ink/" className="contact-item" aria-label="Abrir árvore de links em nova guia">{t.nav.links}</a></li>
             </ul>
           </li>
           <li>
@@ -296,11 +296,9 @@ const Portfolio = () => {
             <a href="mailto:lucasnsntcontato@outlook.com" className="contact-item" target='_blank' rel='noopener noreferrer'>EMAIL <LuExternalLink className="external-link-icon" aria-hidden="true" /></a>
           </ScrollReveal>
           <ScrollReveal direction="wipe" delay={5}>
-            <ExternalLink href="https://links.lucasnsnt.ink/" className="contact-item" aria-label="Abrir árvore de links em nova guia">
-              MEUS LINKS <LuExternalLink className="external-link-icon" aria-hidden="true" />
-            </ExternalLink>
-          </ScrollReveal>
-        </div>
+            <a href="https://links.lucasnsnt.ink/" className="contact-item contact-link-altfont" target="_blank" rel="noopener noreferrer" aria-label="Abrir árvore de links em nova guia"><span>{t.contact.links}</span></a>
+          </ScrollReveal>  
+      </div>
       </section>
 
       {/* Footer */}

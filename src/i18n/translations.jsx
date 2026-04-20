@@ -7,6 +7,7 @@ const translations = {
       projects: "PROJETOS",
       skills: "SKILLS",
       contact: "CONTATO",
+      links: "Meus links",
     },
     hero: {
       tagline: "Desenvolvedor web.",
@@ -63,6 +64,7 @@ const translations = {
     },
     contact: {
       title: "ENTRE EM CONTATO",
+      links: "Mais formas de contato aqui.",
     },
     footer: `© ${currentYear} Lucas Santos. Todos os direitos reservados.`,
   },
@@ -74,6 +76,7 @@ const translations = {
       projects: "PROJECTS",
       skills: "SKILLS",
       contact: "CONTACT",
+      links: "My links",
     },
     hero: {
       tagline: "Web developer.",
@@ -130,6 +133,7 @@ const translations = {
     },
     contact: {
       title: "GET IN TOUCH",
+      links: "More contact options here.",
     },
     footer: `© ${currentYear} Lucas Santos. All rights reserved.`,
   },

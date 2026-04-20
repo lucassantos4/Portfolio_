@@ -1,3 +1,50 @@
+.contact-link-altfont {
+  font-family: var(--texto);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+
+  border: var(--border-width) solid var(--text-color);
+  padding: 0.55em 1.2em;
+  margin-top: 0.5rem;
+
+  color: var(--text-color);
+  background-color: transparent;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  transition: var(--transition);
+}
+
+.contact-link-altfont::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.contact-link-altfont:hover::before {
+  transform: scaleY(1);
+}
+
+.contact-link-altfont:hover {
+  color: #fff;
+  padding-left: 1.2em;
+  border-color: var(--accent);
+}
+
+
 /* ===================================
    Contact & Footer
    =================================== */
@@ -32,7 +79,7 @@
   flex-shrink: 0;
 }
 
-.contact-item:hover {
+.contact-item:not(.contact-link-altfont):hover {
   padding-left: 1.5rem;
   color: var(--accent);
 }
